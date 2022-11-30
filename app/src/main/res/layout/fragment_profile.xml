@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.mtc.nowwrite.model.User" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.fragment.ProfileFragment">
+
+        <View
+            android:id="@+id/topView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/left_bottom_radius_background" />
+
+        <ImageView
+            android:id="@+id/backButton_Profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_keyboard_backspace_24" />
+
+        <!-- for small screen phone -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topView"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="50dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="128dp"
+                        android:layout_height="128dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profileImage_Profile"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_outline_person_outline_24"
+                            app:civ_border_color="@color/nowwrite_theme_darkblue"
+                            app:civ_border_width="2dp" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/editProfileImage_Profile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_baseline_add_24"
+                            android:textColor="@color/nowwrite_theme_darkblue"
+                            android:visibility="gone"
+                            app:civ_border_color="@color/cardview_light_background"
+                            app:civ_border_width="2dp"
+                            app:civ_circle_background_color="@color/nowwrite_theme_black" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/deleteProfileImage_Profile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentBottom="true"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_baseline_remove_24"
+                            android:textColor="@color/nowwrite_theme_darkblue"
+                            app:civ_border_color="@color/cardview_light_background"
+                            app:civ_border_width="2dp"
+                            app:civ_circle_background_color="@color/black" />
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/imageSwitchIcon_Profile"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:visibility="gone"
+                        android:background="@drawable/ic_baseline_cameraswitch_24"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/newProfileImage_Profile"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:layout_margin="16dp"
+                        android:visibility="gone"
+                        android:src="@drawable/ic_outline_person_outline_24"
+                        app:civ_border_color="@color/nowwrite_theme_darkblue"
+                        app:civ_border_width="2dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/emailEditText_Profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="@{user.userEmail}"
+                    android:textAlignment="center"
+                    android:textColor="@color/nowwrite_theme_gray" />
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/username_TextInputLayout_Profile"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:hint="username"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/username_Profile"
+                        style="@style/textInputEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:inputType="textEmailAddress"
+                        android:text="@{user.userName}"
+                        android:textColor="@color/nowwrite_theme_gray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+                <Button
+                    android:id="@+id/editButton_Profile"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+                    android:padding="5dp"
+                    android:text="edit"
+                    android:textColor="@color/nowwrite_theme_lightblue" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp">
+
+                    <Button
+                        android:id="@+id/cancelButton_Profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="cancel"
+                        android:textColor="@color/nowwrite_theme_lightblue"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/saveButton_Profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="save"
+                        android:textColor="@color/nowwrite_theme_lightblue"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/deleteAccountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="delete account"
+                    android:textColor="@color/red"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:drawableStartCompat="@drawable/ic_baseline_delete_outline_24" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+
+</layout>
+

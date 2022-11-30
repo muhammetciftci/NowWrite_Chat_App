@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/topView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/left_bottom_radius_background" />
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topView"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="75dp"
+            app:srcCompat="@drawable/icon" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView_Splash"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:layout_centerInParent="true"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/splash_loading"
+            app:lottie_url="REPLACE_JSON_URL" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/noIntenetAnimationView_Splash"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/nointernet"
+            app:lottie_url="REPLACE_JSON_URL" />
+
+        <Button
+            android:id="@+id/reconnectButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@id/noIntenetAnimationView_Splash"
+            android:layout_centerInParent="true"
+            android:onClick="reconnect"
+            android:padding="10dp"
+            android:text="Reconnect"
+            android:visibility="gone"/>
+
+
+        <View
+            android:id="@+id/bottomView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/right_top_radius_background" />
+    </RelativeLayout>
+
+
+</layout>
