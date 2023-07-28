@@ -12,7 +12,6 @@ An example project for my development
 - Coroutines <br> 
 - LiveData <br>
 - DataBinding <br>
-- ViewBinding <br>
 - Navigation <br>
 - Glide <br>
 </h3>
